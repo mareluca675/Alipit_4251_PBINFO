@@ -1,0 +1,43 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int nrcif = 0, cnt = 1;
+    long long m, p = 10, cn, n;
+    
+    cin >> n;
+    
+    cn = n;
+    while(cn > 0)
+    {
+        nrcif ++;
+        cn /= 10;
+    }
+    
+    while(cnt <= nrcif / 2)
+    {
+        cn = n;
+        m = cn % p;
+        cn /= p;
+        
+        while(m == cn % p)
+        {
+            cn /= p;
+        }
+        
+        if(cn == 0)
+        {
+            cout << "DA";
+            return 0;
+        }
+        else
+        {
+            cnt ++;
+            p = p * 10;
+        }
+    }
+    
+   cout << "NU";
+}
